@@ -5,10 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import LiquidButton from "../atoms/getintouch";
 
 const Item = [
-  { label: "About", href: "about" },
-  { label: "Skill", href: "skill" },
-  { label: "Project", href: "project" },
-  { label: "Contact", href: "contact" },
+  { label: "About", href: "#about" },
+  { label: "Skill", href: "#skill" },
+  { label: "Project", href: "#project" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
         <ul className="lg:flex hidden items-center gap-6 uppercase font-semibold text-white place-content-center">
           {Item.map((item) => (
             <li key={item.label}>
-              <a href={`#${item.href}`} className="hover:text-sky-400 transition">
+              <a href={`${item.href}`} className="hover:text-sky-400 transition">
                 {item.label}
               </a>
             </li>

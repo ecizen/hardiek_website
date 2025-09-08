@@ -133,6 +133,7 @@
 html,
 body {
   cursor: none;
+  scroll-behavior:smooth;
 }
 
 .clip-menu {

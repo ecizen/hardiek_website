@@ -23,6 +23,7 @@ export default function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
             <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
           </span>
+          
           <h3 className="text-gray-400 text-xl">FULL STACK DEVELOPER</h3>
         </div>
 

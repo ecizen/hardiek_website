@@ -1,22 +1,101 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+const Typewriter = ({
+  text,
+  speed = 40,
+  className,
+  trigger,
+}: {
+  text: string;
+  speed?: number;
+  className?: string;
+  trigger: boolean; // hanya jalan kalau true
+}) => {
+  const [displayed, setDisplayed] = useState("");
+
+  useEffect(() => {
+    if (!trigger) return; // stop kalau belum masuk viewport
+
+    let i = 0;
+    setDisplayed(""); // reset biar ulang kalau masuk lagi
+    const interval = setInterval(() => {
+      setDisplayed((prev) => prev + text.charAt(i));
+      i++;
+      if (i >= text.length) clearInterval(interval);
+    }, speed);
+
+    return () => clearInterval(interval);
+  }, [text, speed, trigger]);
+
+  return <span className={className}>{displayed}</span>;
+};
+
 const About = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" }); 
+  // `once: true` → animasi cuma jalan sekali
+
   return (
-    <div className="min-h-screen bg-black px-8 py-20">
-      <h1 className="lg:text-8xl text-5xl text-white font-bold">I AM A FUTURE</h1>
-      <h1 className="lg:text-8xl text-5xl text-white font-bold">FULL STACK DEV.</h1>
-      <button className="mt-12 font-semibold clip-menu bg-white text-black uppercase px-6 py-2">
+    <div
+      ref={ref}
+      className="min-h-screen bg-black px-8 py-20 about"
+      id="about"
+    >
+      <h1 className="lg:text-8xl text-5xl text-white font-bold">
+        <Typewriter text="I AM A FUTURE" speed={60} trigger={inView} />
+      </h1>
+      <h1 className="lg:text-8xl text-5xl text-white font-bold">
+        <Typewriter text="FULL STACK DEV." speed={60} trigger={inView} />
+      </h1>
+
+      {/* Tombol muncul dengan animasi */}
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ delay: 1.5, duration: 0.6 }}
+        className="mt-12 font-semibold clip-menu bg-white text-black uppercase px-6 py-2"
+      >
         View My Cv
-      </button>
+      </motion.button>
+
+      {/* Konten ABOUT ME */}
       <div className="w-full lg:max-w-[50%] mt-16 flex flex-col space-y-16 ">
-        <div>
-          <div className="text-2xl font-semibold text-white">ABOUT ME</div>
-          <p className="text-xl uppercase text-gray-400 font-semibold tracking-[3px] text-justify mt-6">I'm on the cutting edge of modern web and mobile development tools, enabling me to build robust, scalable, and creative applications from front-end to back-end. Though my methods may be unconventional, my dedication to clean, efficient, and maintainable code is unparalleled. I thrive on solving complex problems and believe that with the right approach, any technical challenge can be overcome.</p>
-        </div>
-        <div>
-          <div className="text-2xl font-semibold text-white">CHALLENGES & APPROACH</div>
-          <p className="text-xl uppercase text-gray-400 font-semibold tracking-[3px] text-justify mt-6">I focus on full stack development principles, ensuring both the client-side and server-side of applications work seamlessly together. I employ responsive and dynamic front-end techniques while building scalable back-end architectures. I optimize performance, security, and maintainability to deliver fast, reliable, and user-friendly applications across all platforms.</p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 2, duration: 1 }}
+        >
+          <div className="text-2xl font-semibold text-white mb-6">ABOUT ME</div>
+          <Typewriter
+            text="I'm on the cutting edge of modern web and mobile development tools, enabling me to build robust, scalable, and creative applications from front-end to back-end. Though my methods may be unconventional, my dedication to clean, efficient, and maintainable code is unparalleled. I thrive on solving complex problems and believe that with the right approach, any technical challenge can be overcome."
+            speed={20}
+            trigger={inView}
+            className="text-xl uppercase text-gray-400 font-semibold tracking-[3px] text-justify"
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ delay: 3, duration: 1 }}
+        >
+          <div className="text-2xl font-semibold text-white mb-6">
+            CHALLENGES & APPROACH
+          </div>
+          <Typewriter
+            text="I focus on full stack development principles, ensuring both the client-side and server-side of applications work seamlessly together. I employ responsive and dynamic front-end techniques while building scalable back-end architectures. I optimize performance, security, and maintainability to deliver fast, reliable, and user-friendly applications across all platforms."
+            speed={20}
+            trigger={inView}
+            className="text-xl uppercase text-gray-400 font-semibold tracking-[3px] text-justify"
+          />
+        </motion.div>
       </div>
     </div>
   );
 };
+
 export default About;
