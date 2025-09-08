@@ -13,7 +13,7 @@ export default function Home() {
 
       {/* Hero fixed di background */}
       <Hero />
-      <div className="lg:h-[80vh] h-[50vh]"></div>
+      <div className="lg:h-[460px] h-[40vh]"></div>
       <div className="relative z-30">
         <ScrollBasedVelocityDemo />
         <About />
