@@ -52,5 +52,5 @@ export default function MaskCursor() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed top-0 left-0 pointer-events-none z-[9999]" />;
+  return <canvas ref={canvasRef} className="lg:flex hidden fixed top-0 left-0 pointer-events-none z-[9999]" />;
 }
