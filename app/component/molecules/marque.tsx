@@ -7,10 +7,10 @@ export function ScrollBasedVelocityDemo() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-white">
       <ScrollVelocityContainer className="text-4xl md:text-7xl md:leading-[5rem] font-bold tracking-[-0.02em]">
-        <ScrollVelocityRow baseVelocity={20} direction={1}>
+        <ScrollVelocityRow baseVelocity={10} direction={1}>
           SOFTWARE ENGINER
         </ScrollVelocityRow>
-        <ScrollVelocityRow baseVelocity={20} direction={-1}>
+        <ScrollVelocityRow baseVelocity={10} direction={-1}>
          SOFTWARE ENGINER
         </ScrollVelocityRow>
       </ScrollVelocityContainer>

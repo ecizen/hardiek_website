@@ -86,7 +86,7 @@ const Navbar = () => {
                     transition={{ delay: i * 0.1 }}
                   >
                     <a
-                      href={`#${item.href}`}
+                      href={`${item.href}`}
                       onClick={() => setIsOpen(false)}
                       className="hover:text-sky-400 transition"
                     >
