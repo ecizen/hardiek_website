@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { ScratchToRevealDemo } from "./reveal-face";
 
 const Typewriter = ({
@@ -14,15 +13,15 @@ const Typewriter = ({
   text: string;
   speed?: number;
   className?: string;
-  trigger: boolean; // hanya jalan kalau true
+  trigger: boolean;
 }) => {
   const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
-    if (!trigger) return; // stop kalau belum masuk viewport
+    if (!trigger) return;
 
     let i = 0;
-    setDisplayed(""); // reset biar ulang kalau masuk lagi
+    setDisplayed("");
     const interval = setInterval(() => {
       setDisplayed((prev) => prev + text.charAt(i));
       i++;
@@ -38,11 +37,15 @@ const Typewriter = ({
 const About = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  // `once: true` → animasi cuma jalan sekali
 
   return (
-    <div className="px-8 py-20 grid lg:grid-cols-2 grid-cols-1">
-      <div ref={ref} className="lg:order-1 order-2 px-8 py-20 mt-12 about" id="about">
+    <div className="px-8 py-20 grid lg:grid-cols-2 grid-cols-1 gap-12">
+      {/* Bagian Text */}
+      <div
+        ref={ref}
+        className="order-2 lg:order-1 px-4 py-12 mt-12 about"
+        id="about"
+      >
         <h1 className="lg:text-4xl text-5xl text-white font-bold">
           <Typewriter text="I AM A FUTURE" speed={60} trigger={inView} />
         </h1>
@@ -53,13 +56,13 @@ const About = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 1.5, duration: 0.6 }}
-          className="mt-12 font-semibold clip-menu  text-white border border-white uppercase px-6 py-2"
+          className="mt-12 font-semibold clip-menu text-white border border-white uppercase px-6 py-2"
         >
           View My Cv
         </motion.button>
 
         {/* Konten ABOUT ME */}
-        <div className="w-full  mt-16 flex flex-col space-y-16 ">
+        <div className="w-full mt-16 flex flex-col space-y-16">
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
@@ -93,10 +96,11 @@ const About = () => {
           </motion.div>
         </div>
       </div>
-      <div className="flex lg:order-2 order-1 items-center justify-center">
-        <ScratchToRevealDemo/>
-      </div>
 
+      {/* Bagian ScratchToReveal */}
+      <div className="order-1 lg:order-2 flex items-start justify-start lg:items-center lg:justify-center">
+        <ScratchToRevealDemo />
+      </div>
     </div>
   );
 };
