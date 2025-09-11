@@ -39,17 +39,17 @@ const About = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <div className="px-8 py-20 grid lg:grid-cols-2 grid-cols-1 gap-12">
+    <div className="lg:px-8 px-4 py-20 grid lg:grid-cols-2 grid-cols-1 gap-12">
       {/* Bagian Text */}
       <div
         ref={ref}
         className="order-2 lg:order-1 px-4 py-12 mt-12 about"
         id="about"
       >
-        <h1 className="lg:text-4xl text-5xl text-white font-bold">
+        <h1 className="lg:text-4xl text-4xl text-white font-bold">
           <Typewriter text="I AM A FUTURE" speed={60} trigger={inView} />
         </h1>
-        <h1 className="lg:text-4xl text-5xl text-white font-bold">
+        <h1 className="lg:text-4xl text-4xl text-white font-bold">
           <Typewriter text="FULL STACK DEV." speed={60} trigger={inView} />
         </h1>
         <motion.button
