@@ -3,27 +3,40 @@ import Hero from "./component/organsisms/hero";
 import CustomCursor from "./component/atoms/custom-scroll";
 import { ScrollBasedVelocityDemo } from "./component/molecules/marque";
 import About from "./component/organsisms/about";
+import ProjectS from "./component/organsisms/project";
+import NoiseBackground from "./component/organsisms/bg-aura";
+import Link from "next/link";
+import ShortDescripiton from "./component/organsisms/short-decription";
+
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Navbar harus lebih tinggi dari Hero */}
+    <div className="relative">
+      {/* 🔥 Noise background selalu di paling belakang */}
+      <NoiseBackground />
+
       <Navbar />
-
       <CustomCursor />
-
-      {/* Hero fixed di background */}
       <Hero />
-      <div className="lg:h-[460px] h-[40vh]"></div>
-      <div className="relative z-30">
-        <ScrollBasedVelocityDemo />
-        <section id="about" className="about">
-          <About />
-        </section>
-
-        <section className="relative z-20 min-h-screen bg-black text-white flex items-center justify-center">
-          <h2 className="text-4xl font-bold">Section 2</h2>
-        </section>
-      </div>
+      <ScrollBasedVelocityDemo />
+      <section id="about" className="about">
+        <About />
+      </section>
+      <section>
+        <ProjectS />
+        <div className="py-8">
+          <div className="flex justify-center mt-0">
+            <Link
+              href="/projects"
+              className="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition"
+            >
+              View All Projects
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section>
+        <ShortDescripiton/>
+      </section>
     </div>
   );
 }

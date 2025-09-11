@@ -1,0 +1,102 @@
+.cardContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -25%;
+  height: 500px;
+  width: 1000px;
+  border-radius: 25px;
+  padding: 50px;
+  transform-origin: top;
+  background: linear-gradient(135deg, #0a1729, #0c1b2f);
+  color: white;
+}
+
+.body {
+  display: flex;
+  height: 100%;
+  margin-top: 20px;
+  gap: 50px;
+}
+
+/* Text kiri */
+.description {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.description h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.description p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+.comingSoon {
+  background: #2d3645;
+  color: #9ca3af;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: none;
+  cursor: not-allowed;
+  width: fit-content;
+}
+
+/* Image kanan */
+.imageContainer {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inner {
+  flex: 1;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: black;
+}
+
+.inner img {
+  object-fit: contain;
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.stats p {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.stats h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 4px;
+}

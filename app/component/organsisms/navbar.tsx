@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <header className="z-50 relative">
-      <nav className="w-full grid lg:grid-cols-3 grid-cols-2 lg:px-8 px-6 py-4 border-b border-b-neutral-900 bg-black">
+      <nav className="w-full grid lg:grid-cols-3 grid-cols-2 lg:px-8 px-6 py-4 ">
         {/* Logo */}
         <div className="text-xl font-bold text-white uppercase flex items-center">
           <h1 className="text-left">Hardiek.T</h1>

@@ -40,9 +40,10 @@ const About = () => {
   // `once: true` → animasi cuma jalan sekali
 
   return (
+    
     <div
       ref={ref}
-      className="min-h-screen bg-black px-8 py-20 about"
+      className=" px-8 py-20 mt-12 about"
       id="about"
     >
       <h1 className="lg:text-8xl text-5xl text-white font-bold">
@@ -57,7 +58,7 @@ const About = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ delay: 1.5, duration: 0.6 }}
-        className="mt-12 font-semibold clip-menu bg-white text-black uppercase px-6 py-2"
+        className="mt-12 font-semibold clip-menu  text-white border border-white uppercase px-6 py-2"
       >
         View My Cv
       </motion.button>
