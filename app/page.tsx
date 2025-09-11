@@ -7,13 +7,13 @@ import ProjectS from "./component/organsisms/project";
 import NoiseBackground from "./component/organsisms/bg-aura";
 import Link from "next/link";
 import ShortDescripiton from "./component/organsisms/short-decription";
+import { ScratchToRevealDemo } from "./component/organsisms/reveal-face";
+import { AnimatedGradientTextDemo } from "./component/molecules/animated-gradint";
 
 export default function Home() {
   return (
-    <div className="relative">
-      {/* 🔥 Noise background selalu di paling belakang */}
+    <div className="relative ">
       <NoiseBackground />
-
       <Navbar />
       <CustomCursor />
       <Hero />
@@ -22,7 +22,9 @@ export default function Home() {
         <About />
       </section>
       <section>
+        <AnimatedGradientTextDemo/>
         <ProjectS />
+      </section>
         <div className="py-8">
           <div className="flex justify-center mt-0">
             <Link
@@ -33,7 +35,6 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
       <section>
         <ShortDescripiton/>
       </section>

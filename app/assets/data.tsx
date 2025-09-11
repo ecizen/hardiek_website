@@ -20,6 +20,7 @@ import certifcate7 from '../assets/certificate7.jpeg'
 import certifcate8 from '../assets/certificate8.jpeg'
 import certifcate9 from '../assets/certificate9.jpeg'
 import certifcate10 from '../assets/certificate10.jpeg'
+import face from './face.jpeg'
 const images = {
     profile,
     project1,
@@ -42,6 +43,7 @@ const images = {
     certifcate7,
     certifcate8,
     certifcate9,
-    certifcate10
+    certifcate10,
+    face
 }
 export default images

@@ -7,7 +7,6 @@ import { div } from "framer-motion/client";
 export default function Hero() {
   const { scrollY } = useScroll();
 
-  // transformasi saat scroll
   const scale = useTransform(scrollY, [0, 400], [1, 0.8]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
   const y = useTransform(scrollY, [0, 400], [0, -100]);

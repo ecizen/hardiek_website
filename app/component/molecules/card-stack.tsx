@@ -38,6 +38,7 @@ const Card: React.FC<CardProps> = ({
       ref={container}
       className="min-h-screen flex items-center justify-center sticky top-0"
     >
+      
       <motion.div
         style={{
           scale,
@@ -46,7 +47,6 @@ const Card: React.FC<CardProps> = ({
         }}
         className="relative w-full lg:max-w-5xl rounded-3xl border border-white/10 bg-[rgb(20,20,20)] p-6 shadow-md flex flex-col md:flex-row gap-6 h-[500px]"
       >
-        {/* Text Section */}
         <div className="flex-1 space-y-4">
           <h2 className="text-2xl font-bold text-white leading-snug">
             {title}
