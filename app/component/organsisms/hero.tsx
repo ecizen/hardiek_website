@@ -12,9 +12,9 @@ export default function Hero() {
   const y = useTransform(scrollY, [0, 400], [0, -100]);
 
   return (
-    <div className="lg:min-h-screen relative ">
+    <div className="lg:min-h-screen relative bg-neutral-950">
       {" "}
-      <section className=" top-0 left-0 w-full lg:py-40 py-20  flex flex-col items-center justify-center ">
+      <section className=" top-0 left-0 w-full lg:py-20 py-20  flex flex-col items-center justify-center ">
         <motion.div
           style={{ scale, opacity, y }}
           className="relative  text-center"
@@ -53,9 +53,9 @@ export default function Hero() {
             transition={{ duration: 1, delay: 1.5 }}
             className="mt-10 flex justify-center gap-6"
           >
-            <button className="relative px-6 py-3  text-white rounded-full overflow-hidden group">
+            <button className="relative px-6 py-3 hover:bg-black  text-white rounded-full overflow-hidden group">
               <span className="relative z-10">Download CV</span>
-              <BorderBeam duration={8} size={100} />
+              <BorderBeam duration={8} size={100} className="" />
             </button>
           </motion.div>
       
